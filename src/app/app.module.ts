@@ -9,9 +9,10 @@ import { NavBrandComponent } from './components/nav-brand/nav-brand.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent],
+  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent, UserPageComponent],
   imports: [
     BrowserModule,
     NgbModule,

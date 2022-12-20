@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ILogin, ILoginToken } from 'src/app/interfaces/i-login';
 import { LoginService } from 'src/app/services/login.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -9,7 +9,9 @@ import { StorageService } from 'src/app/services/storage.service';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
+  defaultURL: string = 'login';
+  lastURL: string | null = null;
   user: ILogin = {
     username: '',
     password: '',
@@ -17,15 +19,26 @@ export class LoginPageComponent {
   constructor(
     private loginService: LoginService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private activatedRouter: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    this.activatedRouter.queryParamMap.subscribe((params) => {
+      this.lastURL = params.get('lastURL');
+    });
+  }
 
   onSignIn() {
     this.loginService.login(this.user).subscribe((response: ILoginToken) => {
       this.storageService.save('TOKEN', response.token);
       this.storageService.save('USERNAME', response.username);
       this.storageService.save('PHOTO_PROFILE', response.image);
-      this.router.navigate(['dashboard']);
+      if (this.lastURL) {
+        this.router.navigate([this.lastURL]);
+      } else {
+        this.router.navigate([this.defaultURL]);
+      }
     });
   }
 }
