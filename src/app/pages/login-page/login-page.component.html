@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Sign In</h4>
+          <div class="mb-2">
+            <label for="" class="form-label">Username</label>
+            <input
+              type="text"
+              [(ngModel)]="user.username"
+              class="form-control"
+            />
+            <label for="" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="user.password"
+            />
+          </div>
+          <div class="mb-2">
+            <button class="btn btn-primary" (click)="onSignIn()">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8"></div>
+  </div>
+</div>

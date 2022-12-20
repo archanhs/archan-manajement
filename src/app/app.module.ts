@@ -2,15 +2,24 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavBrandComponent } from './components/nav-brand/nav-brand.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgbModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
