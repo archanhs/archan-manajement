@@ -10,7 +10,7 @@ export class DashboardPageComponent {
     {
       title: 'Product Management',
       image: 'https://picsum.photos/400/200?random=1',
-      link: '',
+      link: '/product',
     },
     {
       title: 'User Management',

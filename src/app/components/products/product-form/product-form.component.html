@@ -1,0 +1,76 @@
+<div class="card">
+  <!-- {{ product | json }} -->
+  <h5 class="card-header" *ngIf="product.id">{{ product.title }}</h5>
+  <h5 class="card-header" *ngIf="!product.id">New Product</h5>
+
+  <ul *ngIf="product && isConfirmDelete" class="list-group list-group-flush">
+    <li class="list-group-item">
+      Anda yakin ingin menghapus data <strong>{{ product.title }}</strong>
+    </li>
+    <li class="list-group-item">
+      <div class="mb-2 mt-2" *ngIf="product.id">
+        <button class="btn btn-primary me-1" (click)="delete()">Yes</button>
+        <button class="btn btn-danger me-1" (click)="isConfirmDelete = false">
+          No
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="list-group list-group-flush" *ngIf="!isConfirmDelete">
+    <li class="list-group-item">
+      <div class="mb-3">
+        <label for="" class="form-label">Title</label>
+        <input type="text" class="form-control" [(ngModel)]="product.title" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="product.description"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="number" class="form-control" [(ngModel)]="product.price" />
+      </div>
+    </li>
+    <li class="list-group-item" (click)="showToggle()" *ngIf="!showMore">
+      More
+    </li>
+    <li class="list-group-item" (click)="showToggle()" *ngIf="showMore">
+      Hide
+    </li>
+    <li class="list-group-item" *ngIf="showMore">
+      <div class="mb-3">
+        <label for="" class="form-label">Discount</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="product.discountPercentage"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Stock</label>
+        <input type="number" class="form-control" [(ngModel)]="product.stock" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Brand</label>
+        <input type="text" class="form-control" [(ngModel)]="product.brand" />
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="mb-2 mt-2" *ngIf="!product.id">
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+      <div class="mb-2 mt-2" *ngIf="product.id">
+        <button class="btn btn-primary me-1" (click)="update()">Update</button>
+        <button class="btn btn-warning me-1" (click)="cancel()">Cancel</button>
+        <button class="btn btn-danger me-1" (click)="isConfirmDelete = true">
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

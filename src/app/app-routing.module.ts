@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'user',
     component: UserPageComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'product',
+    component: ProductListComponent,
   },
 ];
 
