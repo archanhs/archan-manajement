@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree {
-    if (!this.loginService.idUserLogin()) {
+    if (!this.loginService.isUserLogin()) {
       alert('Login Dulu');
       this.router.navigate(['login'], { queryParams: { lastURL: route.url } });
       return false;

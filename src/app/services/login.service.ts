@@ -27,7 +27,7 @@ export class LoginService {
       { headers }
     );
   }
-  idUserLogin(): boolean {
+  isUserLogin(): boolean {
     if (this.storageService.check('TOKEN')) {
       return true;
     } else {

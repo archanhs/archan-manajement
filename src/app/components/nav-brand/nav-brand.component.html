@@ -1,4 +1,4 @@
-<nav class="navbar bg-dark navbar-dark mb-4">
+<!-- <nav class="navbar bg-dark navbar-dark mb-4">
   <div class="container-fluid">
     <a href="#" class="navbar-brand">
       <img
@@ -10,5 +10,22 @@
       />
       ARCHANHS
     </a>
+  </div>
+</nav> -->
+
+<nav class="navbar bg-dark navbar-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img
+        src="assets/icon.svg"
+        alt=""
+        width="35"
+        height="35"
+        class="d-inline-block align-text-top"
+      />ARCHANHS</a
+    >
+    <div class="d-flex" *ngIf="isLoggedIn()">
+      <button class="btn btn-outline-light" (click)="onLogOut()">Logout</button>
+    </div>
   </div>
 </nav>

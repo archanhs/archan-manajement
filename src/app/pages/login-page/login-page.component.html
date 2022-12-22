@@ -4,25 +4,73 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Sign In</h4>
-          <div class="mb-2">
-            <label for="" class="form-label">Username</label>
-            <input
-              type="text"
-              [(ngModel)]="user.username"
-              class="form-control"
-            />
-            <label for="" class="form-label">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              [(ngModel)]="user.password"
-            />
-          </div>
-          <div class="mb-2">
-            <button class="btn btn-primary" (click)="onSignIn()">
-              Sign in
-            </button>
-          </div>
+          <form [formGroup]="requiredForm" (ngSubmit)="onSignIn()">
+            <div class="mb-2">
+              <label for="" class="form-label">Username</label>
+              <input
+                type="text"
+                [(ngModel)]="user.username"
+                formControlName="username"
+                class="form-control"
+              />
+              <div
+                class="form-text"
+                *ngIf="
+                  requiredForm.controls['username'].invalid &&
+                  requiredForm.controls['username'].touched
+                "
+              >
+                <span
+                  class="text-danger"
+                  *ngIf="requiredForm.controls['username'].errors?.['required']"
+                >
+                  * required
+                </span>
+              </div>
+              <label for="" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                [(ngModel)]="user.password"
+                formControlName="password"
+              />
+              <div
+                class="form-text"
+                *ngIf="
+                  requiredForm.controls['password'].invalid &&
+                  requiredForm.controls['password'].touched
+                "
+              >
+                <span
+                  class="text-danger"
+                  *ngIf="requiredForm.controls['password'].errors?.['required']"
+                >
+                  * required
+                </span>
+              </div>
+            </div>
+            <!-- <div
+              class="mb-2"
+              *ngIf="
+                requiredForm.controls['username'].invalid ||
+                requiredForm.controls['password'].invalid
+              "
+            >
+              <button class="btn btn-dark" disabled>Sign in</button>
+            </div>
+            <div
+              class="mb-2"
+              *ngIf="
+                requiredForm.controls['username'].valid &&
+                requiredForm.controls['password'].valid
+              "
+            >
+              <button class="btn btn-primary">Sign in</button>
+            </div> -->
+            <div class="mb-2">
+              <button class="btn btn-primary">Sign in</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
