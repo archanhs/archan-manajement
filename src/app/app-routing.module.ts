@@ -6,6 +6,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { UsersListComponent } from './pages/users-list/users-list.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserPageComponent,
+    component: UsersListComponent,
     canActivate: [AuthGuardService],
   },
   {

@@ -1,0 +1,97 @@
+<div class="card">
+  <h5 class="card-header" *ngIf="user.id">{{ user.firstName }}</h5>
+  <h5 class="card-header" *ngIf="!user.id">New User</h5>
+
+  <div class="text-center m-3" *ngIf="user.id">
+    <img
+      src="{{ user.image }}"
+      class="rounded img-thumbnail"
+      width="110"
+      height="110"
+    />
+  </div>
+
+  <ul *ngIf="user && isConfirmDelete" class="list-group list-group-flush">
+    <li class="list-group-item">
+      Anda yakin ingin menghapus data <strong>{{ user.firstName }}</strong>
+    </li>
+    <li class="list-group-item">
+      <div class="mb-2 mt-2" *ngIf="user.id">
+        <button class="btn btn-primary me-1" (click)="delete()">Yes</button>
+        <button class="btn btn-danger me-1" (click)="isConfirmDelete = false">
+          No
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="list-group list-group-flush" *ngIf="!isConfirmDelete">
+    <li class="list-group-item">
+      <div class="mb-3">
+        <label for="" class="form-label">First Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.firstName" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.lastName" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Phone</label>
+        <input type="text" class="form-control" [(ngModel)]="user.phone" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Username</label>
+        <input type="text" class="form-control" [(ngModel)]="user.username" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input type="text" class="form-control" [(ngModel)]="user.password" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Maiden Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.maidenName" />
+      </div>
+    </li>
+    <li class="list-group-item" (click)="showToggle()" *ngIf="!showMore">
+      More
+    </li>
+    <li class="list-group-item" (click)="showToggle()" *ngIf="showMore">
+      Hide
+    </li>
+    <li class="list-group-item" *ngIf="showMore">
+      <div class="mb-3">
+        <label for="" class="form-label">Age</label>
+        <input type="number" class="form-control" [(ngModel)]="user.age" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Gender</label>
+        <!-- <select class="form-select" aria-label="Default select example">
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="3">Three</option>
+        </select> -->
+        <input type="text" class="form-control" [(ngModel)]="user.gender" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Birth Date</label>
+        <input type="date" class="form-control" [(ngModel)]="user.birthDate" />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Image</label>
+        <input type="text" class="form-control" [(ngModel)]="user.image" />
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="mb-2 mt-2" *ngIf="!user.id">
+        <button class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+      <div class="mb-2 mt-2" *ngIf="user.id">
+        <button class="btn btn-primary me-1" (click)="update()">Update</button>
+        <button class="btn btn-warning me-1" (click)="cancel()">Cancel</button>
+        <button class="btn btn-danger me-1" (click)="isConfirmDelete = true">
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

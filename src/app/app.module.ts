@@ -14,6 +14,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductFormComponent } from './components/products/product-form/product-form.component';
 import { ToasterComponent } from './components/toaster/toaster.component';
+import { UsersListComponent } from './pages/users-list/users-list.component';
+import { UserFormComponent } from './components/users/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ToasterComponent } from './components/toaster/toaster.component';
     ProductDetailComponent,
     ProductFormComponent,
     ToasterComponent,
+    UsersListComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
