@@ -16,6 +16,8 @@ import { ProductFormComponent } from './components/products/product-form/product
 import { ToasterComponent } from './components/toaster/toaster.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
 import { UserFormComponent } from './components/users/user-form/user-form.component';
+import { QRCodeModule } from 'angular2-qrcode';
+import { QrgenPageComponent } from './pages/qrgen-page/qrgen-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { UserFormComponent } from './components/users/user-form/user-form.compon
     ToasterComponent,
     UsersListComponent,
     UserFormComponent,
+    QrgenPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { UserFormComponent } from './components/users/user-form/user-form.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    QRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

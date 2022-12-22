@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-center mt-5 mb-5">
+            <qr-code [value]="input" [size]="200"></qr-code>
+          </div>
+          <div class="form-floating mb-3 mt-4">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+              [(ngModel)]="input"
+            ></textarea>
+            <label for="floatingTextarea2">Value</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

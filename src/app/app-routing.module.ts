@@ -7,6 +7,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
+import { QrgenPageComponent } from './pages/qrgen-page/qrgen-page.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'product',
     component: ProductListComponent,
+  },
+  {
+    path: 'qrgen',
+    component: QrgenPageComponent,
+    canActivate: [AuthGuardService],
   },
 ];
 
